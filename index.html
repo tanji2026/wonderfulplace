@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
     <title>麗寶萊茵 | 社區數位生態導覽</title>
-    <!-- 引入 Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -20,7 +18,7 @@
                         brand: {
                             light: '#E0F2FE', 
                             DEFAULT: '#0EA5E9', 
-                            dark: '#0369A1',   
+                            dark: '#0369A1',    
                         }
                     },
                     scrollMargin: {
@@ -40,16 +38,14 @@
             position: relative;
             display: inline-block;
         }
-        /* 已移除藍色底線樣式 */
         section {
             scroll-margin-top: 100px;
         }
-        /* 圖片容器樣式，確保比例一致 */
         .img-container {
-            height: 240px; /* 已調整：從 160px 增加到 240px，讓圖片更方正大器 */
+            height: 240px; 
             overflow: hidden;
             position: relative;
-            background-color: #e2e8f0; /* 預設灰底 */
+            background-color: #e2e8f0; 
         }
         .img-container img {
             width: 100%;
@@ -64,25 +60,19 @@
 </head>
 <body class="bg-slate-50 text-slate-700 antialiased selection:bg-brand-light selection:text-brand-dark">
 
-    <!-- 導覽列 -->
     <nav class="fixed top-0 w-full glass-nav z-50 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <!-- 左側：麗寶萊茵 LOGO -->
                 <div class="flex-shrink-0 cursor-pointer flex items-center gap-3" onclick="window.scrollTo(0,0)">
-                    <!-- 請上傳 assets/logo/logo_header.png -->
-                    <img src="assets/logo/logo_header.png" alt="麗寶萊茵" class="h-10 md:h-12 w-auto object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <!-- 圖片讀取失敗時的替代文字 -->
+                    <img src="assets/logo/logo_header.png" alt="麗寶萊茵" class="h-10 md:h-12 w-auto object-contain" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <div class="hidden text-left">
                         <h1 class="text-lg font-bold text-slate-800">麗寶萊茵</h1>
                         <p class="text-[10px] text-brand tracking-widest uppercase">Wonderful Place</p>
                     </div>
                 </div>
 
-                <!-- 右側：選單 -->
                 <div class="flex items-center gap-4">
-                    <!-- 電腦版選單 -->
                     <div class="hidden md:flex space-x-8">
                         <a href="#plants" class="text-slate-600 hover:text-brand font-medium transition">生態綠化</a>
                         <a href="#energy" class="text-slate-600 hover:text-brand font-medium transition">日常節能</a>
@@ -90,7 +80,6 @@
                         <a href="#future" class="text-slate-600 hover:text-brand font-medium transition">未來願景</a>
                     </div>
 
-                    <!-- 手機版選單按鈕 -->
                     <div class="flex md:hidden">
                         <button onclick="toggleMenu()" class="text-slate-500 hover:text-brand focus:outline-none p-2">
                             <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,7 +91,6 @@
             </div>
         </div>
         
-        <!-- 手機版下拉選單 -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
             <div class="px-4 pt-2 pb-4 space-y-1">
                 <a href="#plants" onclick="toggleMenu()" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">🌱 生態綠化</a>
@@ -113,7 +101,6 @@
         </div>
     </nav>
 
-    <!-- Hero 區域 -->
     <div class="pt-32 pb-12 px-4 text-center bg-gradient-to-b from-blue-50 to-white">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-5xl font-black text-slate-800 mb-6 leading-tight">
@@ -131,7 +118,6 @@
 
     <main class="max-w-6xl mx-auto px-4 pb-24 space-y-24">
         
-        <!-- ================= 1. 生態綠化區 (6種植物) ================= -->
         <section id="plants">
             <div class="flex items-center gap-3 mb-8">
                 <div class="p-2 bg-green-100 rounded-lg text-green-600">
@@ -143,11 +129,9 @@
             </div>
 
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <!-- 1. 桂花 -->
                 <div id="osmanthus" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/plants/osmanthus.jpg -->
-                        <img src="assets/plants/osmanthus.jpg" onerror="this.src='https://images.unsplash.com/photo-1598443905728-66a93910c598?auto=format&fit=crop&q=80&w=600'" alt="桂花">
+                        <img src="assets/plants/osmanthus.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1598443905728-66a93910c598?auto=format&fit=crop&q=80&w=600'" alt="桂花">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">木犀科</span>
                     </div>
                     <div class="p-5">
@@ -158,11 +142,9 @@
                     </div>
                 </div>
 
-                <!-- 2. 羅漢松 -->
                 <div id="podocarpus" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/plants/podocarpus.jpg -->
-                        <img src="assets/plants/podocarpus.jpg" onerror="this.src='https://images.unsplash.com/photo-1596726660601-52e85a420b91?auto=format&fit=crop&q=80&w=600'" alt="羅漢松">
+                        <img src="assets/plants/podocarpus.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596726660601-52e85a420b91?auto=format&fit=crop&q=80&w=600'" alt="羅漢松">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">羅漢松科</span>
                     </div>
                     <div class="p-5">
@@ -173,11 +155,9 @@
                     </div>
                 </div>
 
-                <!-- 3. 變葉木 -->
                 <div id="croton" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/plants/croton.jpg -->
-                        <img src="assets/plants/croton.jpg" onerror="this.src='https://images.unsplash.com/photo-1614594975525-e45890e2e126?auto=format&fit=crop&q=80&w=600'" alt="變葉木">
+                        <img src="assets/plants/croton.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1614594975525-e45890e2e126?auto=format&fit=crop&q=80&w=600'" alt="變葉木">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">大戟科</span>
                     </div>
                     <div class="p-5">
@@ -188,11 +168,9 @@
                     </div>
                 </div>
 
-                <!-- 4. 七里香 -->
                 <div id="murraya" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/plants/murraya.jpg -->
-                        <img src="assets/plants/murraya.jpg" onerror="this.src='https://images.unsplash.com/photo-1596249767298-382903746654?auto=format&fit=crop&q=80&w=600'" alt="月橘 (七里香)">
+                        <img src="assets/plants/murraya.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596249767298-382903746654?auto=format&fit=crop&q=80&w=600'" alt="月橘 (七里香)">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">芸香科</span>
                     </div>
                     <div class="p-5">
@@ -203,11 +181,9 @@
                     </div>
                 </div>
 
-                <!-- 5. 仙丹花 -->
                 <div id="ixora" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/plants/ixora.jpg -->
-                        <img src="assets/plants/ixora.jpg" onerror="this.src='https://images.unsplash.com/photo-1599598425947-320092261f9d?auto=format&fit=crop&q=80&w=600'" alt="仙丹花">
+                        <img src="assets/plants/ixora.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599598425947-320092261f9d?auto=format&fit=crop&q=80&w=600'" alt="仙丹花">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">茜草科</span>
                     </div>
                     <div class="p-5">
@@ -218,11 +194,9 @@
                     </div>
                 </div>
 
-                <!-- 6. 虎尾蘭 -->
                 <div id="sansevieria" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/plants/sansevieria.jpg -->
-                        <img src="assets/plants/sansevieria.jpg" onerror="this.src='https://images.unsplash.com/photo-1599152277663-128292f7039f?auto=format&fit=crop&q=80&w=600'" alt="虎尾蘭">
+                        <img src="assets/plants/sansevieria.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599152277663-128292f7039f?auto=format&fit=crop&q=80&w=600'" alt="虎尾蘭">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">龍舌蘭科</span>
                     </div>
                     <div class="p-5">
@@ -235,7 +209,6 @@
             </div>
         </section>
 
-        <!-- ================= 2. 日常節能區 ================= -->
         <section id="energy">
             <div class="flex items-center gap-3 mb-8">
                 <div class="p-2 bg-yellow-100 rounded-lg text-yellow-600">
@@ -247,11 +220,9 @@
             </div>
 
             <div class="grid gap-6 md:grid-cols-2">
-                <!-- 感應照明 -->
                 <div id="lighting" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/lighting.jpg -->
-                        <img src="assets/facilities/lighting.jpg" onerror="this.src='https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&q=80&w=600'" alt="感應照明">
+                        <img src="assets/facilities/lighting.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1565814329452-e1efa11c5b89?auto=format&fit=crop&q=80&w=600'" alt="感應照明">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -271,11 +242,9 @@
                     </div>
                 </div>
 
-                <!-- 節能電梯 -->
                 <div id="elevator" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/elevator.jpg -->
-                        <img src="assets/facilities/elevator.jpg" onerror="this.src='https://images.unsplash.com/photo-1546252928-39cb0df399c9?auto=format&fit=crop&q=80&w=600'" alt="節能電梯">
+                        <img src="assets/facilities/elevator.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1546252928-39cb0df399c9?auto=format&fit=crop&q=80&w=600'" alt="節能電梯">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -295,11 +264,9 @@
                     </div>
                 </div>
 
-                <!-- 智慧電錶 -->
                 <div id="smart-meter" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/smart_meter.jpg -->
-                        <img src="assets/facilities/smart_meter.jpg" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600'" alt="智慧電錶">
+                        <img src="assets/facilities/smart_meter.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600'" alt="智慧電錶">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -319,11 +286,9 @@
                     </div>
                 </div>
 
-                <!-- 公用冰箱 -->
                 <div id="fridge" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/fridge.jpg -->
-                        <img src="assets/facilities/fridge.jpg" onerror="this.src='https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&q=80&w=600'" alt="節能電器">
+                        <img src="assets/facilities/fridge.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?auto=format&fit=crop&q=80&w=600'" alt="節能電器">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -345,7 +310,6 @@
             </div>
         </section>
 
-        <!-- ================= 3. 永續生活區 ================= -->
         <section id="green-life">
             <div class="flex items-center gap-3 mb-8">
                 <div class="p-2 bg-sky-100 rounded-lg text-sky-600">
@@ -357,11 +321,9 @@
             </div>
 
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <!-- 省水設備 -->
                 <div id="water-saving" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/water_saving.jpg -->
-                        <img src="assets/facilities/water_saving.jpg" onerror="this.src='https://images.unsplash.com/photo-1585909692308-9e87515b4c41?auto=format&fit=crop&q=80&w=600'" alt="省水設備">
+                        <img src="assets/facilities/water_saving.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1585909692308-9e87515b4c41?auto=format&fit=crop&q=80&w=600'" alt="省水設備">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -381,11 +343,9 @@
                     </div>
                 </div>
 
-                <!-- 簡易雨水回收 (NEW) -->
                 <div id="rainwater" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/rainwater.jpg -->
-                        <img src="assets/facilities/rainwater.jpg" onerror="this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=600'" alt="雨水回收">
+                        <img src="assets/facilities/rainwater.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=600'" alt="雨水回收">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -405,11 +365,9 @@
                     </div>
                 </div>
 
-                <!-- 電動車友善 -->
                 <div id="ev-charging" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/ev_charging.jpg -->
-                        <img src="assets/facilities/ev_charging.jpg" onerror="this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=600'" alt="電動車友善">
+                        <img src="assets/facilities/ev_charging.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=600'" alt="電動車友善">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -429,11 +387,9 @@
                     </div>
                 </div>
 
-                <!-- 資源回收 -->
                 <div id="recycling" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/recycling.jpg -->
-                        <img src="assets/facilities/recycling.jpg" onerror="this.src='https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=600'" alt="資源回收">
+                        <img src="assets/facilities/recycling.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=600'" alt="資源回收">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -453,11 +409,9 @@
                     </div>
                 </div>
 
-                <!-- 落葉/廚餘堆肥 -->
                 <div id="compost" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/compost.jpg -->
-                        <img src="assets/facilities/compost.jpg" onerror="this.src='https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?auto=format&fit=crop&q=80&w=600'" alt="堆肥">
+                        <img src="assets/facilities/compost.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?auto=format&fit=crop&q=80&w=600'" alt="堆肥">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -477,11 +431,9 @@
                     </div>
                 </div>
 
-                <!-- 幸福小站 -->
                 <div id="sharing" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 請上傳 assets/facilities/sharing.jpg -->
-                        <img src="assets/facilities/sharing.jpg" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=600'" alt="幸福小站">
+                        <img src="assets/facilities/sharing.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=600'" alt="幸福小站">
                     </div>
                     <div class="p-5">
                         <div class="flex items-start justify-between mb-2">
@@ -503,7 +455,6 @@
             </div>
         </section>
 
-        <!-- ================= 4. 未來改造願景 (NEW) ================= -->
         <section id="future">
             <div class="flex items-center gap-3 mb-8">
                 <div class="p-2 bg-indigo-100 rounded-lg text-indigo-600">
@@ -516,10 +467,8 @@
             </div>
 
             <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-indigo-100">
-                <!-- 大尺寸圖片區 -->
                 <div class="h-64 md:h-96 overflow-hidden relative bg-slate-200">
-                    <!-- 請上傳 assets/future/rooftop_design.jpg -->
-                    <img src="assets/future/rooftop_design.jpg" onerror="this.src='https://images.unsplash.com/photo-1592507671040-a3df426639c4?auto=format&fit=crop&q=80&w=1200'" alt="屋頂農園設計圖" class="w-full h-full object-cover">
+                    <img src="assets/future/rooftop_design.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1592507671040-a3df426639c4?auto=format&fit=crop&q=80&w=1200'" alt="屋頂農園設計圖" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end">
                         <div class="p-8 text-white">
                             <span class="bg-indigo-600 text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block">Future Project</span>
@@ -533,6 +482,7 @@
                         我們計畫將樓頂閒置平臺轉型為生機盎然的「屋頂農園」。
                         透過設置高架種植箱與休憩座椅，不僅能增加社區綠覆率、降低頂層室內溫度，更能成為住戶體驗農耕樂趣、分享收成的社交空間。
                     </p>
+
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="bg-indigo-50 p-4 rounded-xl text-center">
                             <p class="text-indigo-600 font-bold mb-1">降溫隔熱</p>
@@ -553,15 +503,11 @@
 
     </main>
 
-    <!-- 頁尾 -->
     <footer class="bg-slate-900 text-white py-16">
         <div class="max-w-5xl mx-auto px-4 text-center">
             
-            <!-- 頁尾文字 LOGO -->
             <div class="mb-8 flex justify-center">
-                <!-- 請上傳 assets/logo/logo_footer.png -->
-                <img src="assets/logo/logo_footer.png" alt="麗寶萊茵" class="h-12 md:h-16 w-auto opacity-90 object-contain" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <!-- 圖片讀取失敗時的替代文字 -->
+                <img src="assets/logo/logo_footer.png" alt="麗寶萊茵" class="h-12 md:h-16 w-auto opacity-90 object-contain" onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="hidden">
                     <span class="text-2xl font-bold tracking-widest text-white">麗寶萊茵</span>
                 </div>
@@ -572,7 +518,6 @@
         </div>
     </footer>
 
-    <!-- 回到頂部按鈕 -->
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 p-3 bg-white text-brand shadow-lg rounded-full border border-blue-100 hover:bg-blue-50 transition z-40" aria-label="Back to top">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
