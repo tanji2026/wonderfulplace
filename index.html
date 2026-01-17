@@ -56,6 +56,22 @@
         .group:hover .img-container img {
             transform: scale(1.05);
         }
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            transition: all 0.3s ease-in-out;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-700 antialiased selection:bg-brand-light selection:text-brand-dark">
@@ -518,16 +534,67 @@
         </div>
     </footer>
 
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 p-3 bg-white text-brand shadow-lg rounded-full border border-blue-100 hover:bg-blue-50 transition z-40" aria-label="Back to top">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    <button onclick="toggleInfoModal()" class="fixed bottom-6 right-6 px-5 py-3 bg-brand text-white font-bold shadow-lg rounded-full border border-blue-100 hover:bg-brand-dark transition transform hover:-translate-y-1 z-40 flex items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
         </svg>
+        社區介紹
     </button>
+
+    <div id="infoModal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="toggleInfoModal()"></div>
+        
+        <div class="modal-content relative bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden">
+            <div class="h-24 bg-gradient-to-r from-blue-500 to-cyan-500 relative overflow-hidden">
+                <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                <button onclick="toggleInfoModal()" class="absolute top-4 right-4 text-white/80 hover:text-white transition">
+                    <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="p-8 -mt-10 relative">
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-4 border border-slate-100 text-center">
+                    <h3 class="text-2xl font-black text-slate-800 mb-2">碳吉 TanJi 合作社區</h3>
+                    <p class="text-brand font-bold text-lg">實踐低碳生活的理想家園</p>
+                </div>
+
+                <div class="space-y-4 text-slate-600 leading-relaxed text-justify">
+                    <p>
+                        麗寶萊茵致力於打造人與自然和諧共處的環境。緊鄰<span class="font-bold text-slate-800">龍埔國小</span>，我們將生態教育融入日常生活，讓孩子在充滿綠意的環境中成長，認識身邊的每一棵樹、每一朵花。
+                    </p>
+                    <p class="bg-blue-50 p-4 rounded-lg text-sm border-l-4 border-brand">
+                        邀請您一同參與社區的低碳行動，從日常小事做起，減少碳足跡，為地球的永續未來貢獻一份心力。
+                    </p>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <button onclick="toggleInfoModal()" class="px-8 py-2.5 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition font-medium w-full sm:w-auto">
+                        了解社區低碳作為
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
+        }
+
+        function toggleInfoModal() {
+            const modal = document.getElementById('infoModal');
+            const body = document.body;
+            
+            if (modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                body.style.overflow = ''; // 恢復捲動
+            } else {
+                modal.classList.add('active');
+                body.style.overflow = 'hidden'; // 禁止背景捲動
+            }
         }
     </script>
 </body>
