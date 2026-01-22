@@ -134,6 +134,7 @@
 
     <main class="max-w-6xl mx-auto px-4 pb-24 space-y-24">
         
+        <!-- 植物區塊 (已更新為辨識後的9種植物) -->
         <section id="plants">
             <div class="flex items-center gap-3 mb-8">
                 <div class="p-2 bg-green-100 rounded-lg text-green-600">
@@ -145,83 +146,133 @@
             </div>
 
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <div id="osmanthus" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                
+                <!-- 1. 鋪地柏 -->
+                <div id="juniperus" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <img src="assets/plants/osmanthus.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1598443905728-66a93910c598?auto=format&fit=crop&q=80&w=600'" alt="桂花">
-                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">木犀科</span>
+                        <img src="assets/plants/juniperus.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596726660601-52e85a420b91?auto=format&fit=crop&q=80&w=600'" alt="鋪地柏">
+                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">柏科</span>
                     </div>
                     <div class="p-5">
-                        <h4 class="text-xl font-bold text-slate-800">桂花</h4>
-                        <p class="text-xs text-slate-400 italic mb-2">Osmanthus fragrans</p>
-                        <p class="text-sm text-slate-600 mb-3">常綠灌木，花期極長。能吸附懸浮微粒，是天然的空氣清淨機。</p>
-                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 年固碳量約 1.2 kg</div>
+                        <h4 class="text-xl font-bold text-slate-800">鋪地柏</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Juniperus procumbens</p>
+                        <p class="text-sm text-slate-600 mb-3">常綠匍匐性灌木，針葉緻密，作為優良的地被植物，具有很好的水土保持與覆蓋效果。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 優良地被與防塵</div>
                     </div>
                 </div>
 
-                <div id="podocarpus" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                <!-- 2. 孔雀木 -->
+                <div id="schefflera-elegantissima" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <img src="assets/plants/podocarpus.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596726660601-52e85a420b91?auto=format&fit=crop&q=80&w=600'" alt="羅漢松">
-                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">羅漢松科</span>
+                        <img src="assets/plants/false_aralia.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1614594975525-e45890e2e126?auto=format&fit=crop&q=80&w=600'" alt="孔雀木">
+                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">五加科</span>
                     </div>
                     <div class="p-5">
-                        <h4 class="text-xl font-bold text-slate-800">羅漢松</h4>
-                        <p class="text-xs text-slate-400 italic mb-2">Podocarpus macrophyllus</p>
-                        <p class="text-sm text-slate-600 mb-3">樹形優美且抗風性強，在社區擔任防風林角色，有助調節微氣候。</p>
-                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 年固碳量約 18.5 kg</div>
+                        <h4 class="text-xl font-bold text-slate-800">孔雀木</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Schefflera elegantissima</p>
+                        <p class="text-sm text-slate-600 mb-3">葉片狹長呈掌狀複葉，邊緣有鋸齒，姿態優雅如孔雀開屏，具獨特的線條美感與觀賞價值。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 優雅觀葉植物</div>
                     </div>
                 </div>
 
-                <div id="croton" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                <!-- 3. 胡椒木 -->
+                <div id="zanthoxylum" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <img src="assets/plants/croton.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1614594975525-e45890e2e126?auto=format&fit=crop&q=80&w=600'" alt="變葉木">
-                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">大戟科</span>
-                    </div>
-                    <div class="p-5">
-                        <h4 class="text-xl font-bold text-slate-800">變葉木</h4>
-                        <p class="text-xs text-slate-400 italic mb-2">Codiaeum variegatum</p>
-                        <p class="text-sm text-slate-600 mb-3">葉色豐富多變，具極佳的滯塵能力，能有效過濾空氣中的灰塵。</p>
-                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 優異滯塵與淨化能力</div>
-                    </div>
-                </div>
-
-                <div id="murraya" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
-                    <div class="img-container">
-                        <img src="assets/plants/murraya.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596249767298-382903746654?auto=format&fit=crop&q=80&w=600'" alt="月橘 (七里香)">
+                        <img src="assets/plants/zanthoxylum.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599598425947-320092261f9d?auto=format&fit=crop&q=80&w=600'" alt="胡椒木">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">芸香科</span>
                     </div>
                     <div class="p-5">
-                        <h4 class="text-xl font-bold text-slate-800">月橘 (七里香)</h4>
-                        <p class="text-xs text-slate-400 italic mb-2">Murraya paniculata</p>
-                        <p class="text-sm text-slate-600 mb-3">台灣原生種，花香濃郁，是良好的蜜源植物，能吸引蜜蜂蝴蝶。</p>
-                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 誘鳥誘蝶原生種</div>
+                        <h4 class="text-xl font-bold text-slate-800">胡椒木</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Zanthoxylum beecheyanum</p>
+                        <p class="text-sm text-slate-600 mb-3">葉片油亮且全株具獨特芳香，能驅除蚊蟲。常修剪為圓形或作為綠籬，是功能性極佳的植物。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 天然驅蟲香氣</div>
                     </div>
                 </div>
 
-                <div id="ixora" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                <!-- 4. 杜鵑 -->
+                <div id="azalea" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <img src="assets/plants/ixora.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599598425947-320092261f9d?auto=format&fit=crop&q=80&w=600'" alt="仙丹花">
-                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">茜草科</span>
+                        <img src="assets/plants/azalea.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1621960682647-97d510255b77?auto=format&fit=crop&q=80&w=600'" alt="杜鵑">
+                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">杜鵑花科</span>
                     </div>
                     <div class="p-5">
-                        <h4 class="text-xl font-bold text-slate-800">仙丹花</h4>
-                        <p class="text-xs text-slate-400 italic mb-2">Ixora chinensis</p>
-                        <p class="text-sm text-slate-600 mb-3">花期長且花蜜豐富，為都市中重要的蜜源植物，有助生物多樣性。</p>
-                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 社區重要蜜源</div>
+                        <h4 class="text-xl font-bold text-slate-800">杜鵑</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Rhododendron spp.</p>
+                        <p class="text-sm text-slate-600 mb-3">春季盛開時色彩繽紛，是著名的觀賞花卉。葉片表面有絨毛，能吸附空氣中的二氧化硫與粉塵。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 淨化空氣與美化</div>
                     </div>
                 </div>
 
-                <div id="sansevieria" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                <!-- 5. 鵝掌藤 -->
+                <div id="schefflera-arboricola" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <img src="assets/plants/sansevieria.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599152277663-128292f7039f?auto=format&fit=crop&q=80&w=600'" alt="虎尾蘭">
-                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">龍舌蘭科</span>
+                        <img src="assets/plants/schefflera.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1598443905728-66a93910c598?auto=format&fit=crop&q=80&w=600'" alt="鵝掌藤">
+                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">五加科</span>
                     </div>
                     <div class="p-5">
-                        <h4 class="text-xl font-bold text-slate-800">虎尾蘭</h4>
-                        <p class="text-xs text-slate-400 italic mb-2">Sansevieria trifasciata</p>
-                        <p class="text-sm text-slate-600 mb-3">CAM代謝植物，夜間也能吸收二氧化碳並釋放氧氣，淨化能力極強。</p>
-                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 負離子與夜間製氧</div>
+                        <h4 class="text-xl font-bold text-slate-800">鵝掌藤</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Schefflera arboricola</p>
+                        <p class="text-sm text-slate-600 mb-3">生命力強韌，耐陰性佳。葉片像鵝掌一樣可愛，是極佳的室內外綠化植物，具備優異的滯塵能力。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 強效滯塵耐陰</div>
                     </div>
                 </div>
+
+                <!-- 6. 黃金扁柏 -->
+                <div id="golden-cypress" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                    <div class="img-container">
+                        <img src="assets/plants/golden_cypress.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=600'" alt="黃金扁柏">
+                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">柏科</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-xl font-bold text-slate-800">黃金扁柏</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Chamaecyparis obtusa 'Aurea'</p>
+                        <p class="text-sm text-slate-600 mb-3">新葉呈亮麗的金黃色，樹形圓錐狀優美。能釋放芬多精，有助於舒緩身心，提升社區環境質感。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 芬多精與景觀亮點</div>
+                    </div>
+                </div>
+
+                <!-- 7. 南天竹 -->
+                <div id="nandina" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                    <div class="img-container">
+                        <img src="assets/plants/nandina.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1587823385759-4d37536d5420?auto=format&fit=crop&q=80&w=600'" alt="南天竹">
+                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">小檗科</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-xl font-bold text-slate-800">南天竹</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Nandina domestica</p>
+                        <p class="text-sm text-slate-600 mb-3">葉姿秀麗，秋冬氣溫下降時葉色轉紅，果實鮮紅可愛。象徵吉祥，富有東方庭園的禪意。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 四季觀賞價值</div>
+                    </div>
+                </div>
+
+                <!-- 8. 金露花 -->
+                <div id="duranta" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                    <div class="img-container">
+                        <img src="assets/plants/duranta.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1628178652932-d6c57f20e408?auto=format&fit=crop&q=80&w=600'" alt="金露花">
+                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">馬鞭草科</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-xl font-bold text-slate-800">金露花</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Duranta erecta</p>
+                        <p class="text-sm text-slate-600 mb-3">亮黃綠色葉片搭配紫色花串，果實成串如金珠。生長快速且耐修剪，是社區優良的綠籬植物。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 蜜源與綠籬首選</div>
+                    </div>
+                </div>
+
+                <!-- 9. 翠蘆莉 -->
+                <div id="ruellia" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
+                    <div class="img-container">
+                        <img src="assets/plants/ruellia.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596521948831-2a95c4794ac8?auto=format&fit=crop&q=80&w=600'" alt="翠蘆莉">
+                        <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">爵床科</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-xl font-bold text-slate-800">翠蘆莉</h4>
+                        <p class="text-xs text-slate-400 italic mb-2">Ruellia simplex</p>
+                        <p class="text-sm text-slate-600 mb-3">花朵藍紫色，每日清晨開放、黃昏凋謝，故有「日日見花」之美名。適應力強，是極佳的地被花卉。</p>
+                        <div class="bg-green-50 p-2 rounded text-xs text-green-700 font-medium">🌿 每日綻放與強健</div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
