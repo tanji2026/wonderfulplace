@@ -8,12 +8,16 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
         body { font-family: 'Noto Sans TC', sans-serif; }
+        @media print {
+            .no-print { display: none; }
+            .print-break { break-inside: avoid; }
+        }
     </style>
 </head>
 <body class="bg-gray-100 p-8">
 
     <div class="max-w-5xl mx-auto">
-        <div class="bg-white p-6 rounded-2xl shadow-lg mb-8">
+        <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 no-print">
             <h1 class="text-2xl font-bold text-slate-800 mb-4">🛠️ 麗寶萊茵 QR Code 批量產生器</h1>
             <p class="text-slate-600 mb-4">請在下方輸入您網站發布後的「正式網址」，系統會自動加上對應的錨點 (#ID) 並生成二維碼。</p>
             
@@ -32,15 +36,18 @@
     </div>
 
     <script>
-        // 定義所有項目的 ID 與名稱
+        // 定義所有項目的 ID 與名稱 (已更新為正確的9種植物)
         const items = [
-            { category: "生態綠化", list: [
-                { id: "osmanthus", name: "桂花" },
-                { id: "podocarpus", name: "羅漢松" },
-                { id: "croton", name: "變葉木" },
-                { id: "murraya", name: "七里香" },
-                { id: "ixora", name: "仙丹花" },
-                { id: "sansevieria", name: "虎尾蘭" }
+            { category: "生態綠化 (已更新)", list: [
+                { id: "juniperus", name: "鋪地柏" },
+                { id: "schefflera-elegantissima", name: "孔雀木" },
+                { id: "zanthoxylum", name: "胡椒木" },
+                { id: "azalea", name: "杜鵑" },
+                { id: "schefflera-arboricola", name: "鵝掌藤" },
+                { id: "golden-cypress", name: "黃金扁柏" },
+                { id: "nandina", name: "南天竹" },
+                { id: "duranta", name: "金露花" },
+                { id: "ruellia", name: "翠蘆莉" }
             ]},
             { category: "日常節能", list: [
                 { id: "lighting", name: "感應照明" },
@@ -75,22 +82,22 @@
             let html = '';
 
             items.forEach(cat => {
-                html += `<div class="col-span-2 md:col-span-4 mt-4 mb-2 border-b border-gray-300 pb-1">
+                html += `<div class="col-span-2 md:col-span-4 mt-4 mb-2 border-b border-gray-300 pb-1 print-break">
                             <h3 class="font-bold text-gray-500 text-lg">${cat.category}</h3>
                          </div>`;
                 
                 cat.list.forEach(item => {
                     const fullUrl = `${baseUrl}#${item.id}`;
-                    // 使用 Google Chart API 或類似服務生成 QR (這裡用 qrserver API，穩定且免費)
+                    // 使用 API 生成 QR
                     const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=${encodeURIComponent(fullUrl)}`;
                     
                     html += `
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition">
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition print-break">
                             <h4 class="font-bold text-lg text-slate-800 mb-2">${item.name}</h4>
                             <img src="${qrSrc}" alt="${item.name} QR Code" class="w-40 h-40 border border-gray-100 rounded mb-3">
                             <p class="text-[10px] text-gray-400 break-all text-center leading-tight mb-3 px-2">${fullUrl}</p>
                             <a href="${qrSrc}" download="${item.name}_QR.png" target="_blank" 
-                               class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 py-1 px-3 rounded transition">
+                               class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 py-1 px-3 rounded transition no-print">
                                下載圖片
                             </a>
                         </div>
