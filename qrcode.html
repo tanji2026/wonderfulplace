@@ -1,4 +1,11 @@
-   <style>
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>麗寶萊茵解說牌 QR Code 產生器</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
         body { font-family: 'Noto Sans TC', sans-serif; }
         @media print {
@@ -10,25 +17,27 @@
 <body class="bg-gray-100 p-8">
 
     <div class="max-w-5xl mx-auto">
-        <div class="bg-white p-6 rounded-2xl shadow-lg mb-8">
         <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 no-print">
             <h1 class="text-2xl font-bold text-slate-800 mb-4">🛠️ 麗寶萊茵 QR Code 批量產生器</h1>
             <p class="text-slate-600 mb-4">請在下方輸入您網站發布後的「正式網址」，系統會自動加上對應的錨點 (#ID) 並生成二維碼。</p>
+            
+            <div class="flex gap-4">
+                <input type="text" id="baseUrl" value="https://tanji2026.github.io/wonderfulplace/" 
+                    class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-slate-700"
+                    placeholder="例如：https://tanji2026.github.io/wonderfulplace/">
+                <button onclick="generateQRs()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition">重新生成</button>
+            </div>
+            <p class="text-xs text-gray-400 mt-2">*如果是首頁，網址最後面記得要有斜線 /，例如 .../wonderfulplace/</p>
+        </div>
 
-@@ -32,15 +36,18 @@ <h1 class="text-2xl font-bold text-slate-800 mb-4">🛠️ 麗寶萊茵 QR Code
+        <div id="qrContainer" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <!-- QR Codes will be injected here -->
+        </div>
     </div>
 
     <script>
-        // 定義所有項目的 ID 與名稱
         // 定義所有項目的 ID 與名稱 (已更新為正確的9種植物)
         const items = [
-            { category: "生態綠化", list: [
-                { id: "osmanthus", name: "桂花" },
-                { id: "podocarpus", name: "羅漢松" },
-                { id: "croton", name: "變葉木" },
-                { id: "murraya", name: "七里香" },
-                { id: "ixora", name: "仙丹花" },
-                { id: "sansevieria", name: "虎尾蘭" }
             { category: "生態綠化 (已更新)", list: [
                 { id: "juniperus", name: "鋪地柏" },
                 { id: "schefflera-elegantissima", name: "孔雀木" },
@@ -42,30 +51,65 @@
             ]},
             { category: "日常節能", list: [
                 { id: "lighting", name: "感應照明" },
-@@ -75,22 +82,22 @@ <h1 class="text-2xl font-bold text-slate-800 mb-4">🛠️ 麗寶萊茵 QR Code
+                { id: "elevator", name: "節能電梯" },
+                { id: "smart-meter", name: "智慧電錶" },
+                { id: "fridge", name: "公用冰箱" }
+            ]},
+            { category: "永續生活", list: [
+                { id: "water-saving", name: "省水設備" },
+                { id: "rainwater", name: "雨水回收" },
+                { id: "ev-charging", name: "電動車預留" },
+                { id: "recycling", name: "資源回收" },
+                { id: "compost", name: "落葉堆肥" },
+                { id: "sharing", name: "幸福小站" }
+            ]},
+            { category: "未來願景", list: [
+                { id: "future", name: "屋頂農園計畫" }
+            ]}
+        ];
+
+        function generateQRs() {
+            const container = document.getElementById('qrContainer');
+            let baseUrl = document.getElementById('baseUrl').value.trim();
+            
+            // 確保網址結尾沒有 # 或 /index.html (我們需要純淨的 base url)
+            baseUrl = baseUrl.split('#')[0];
+            if (!baseUrl.endsWith('/') && !baseUrl.endsWith('.html')) {
+                // 如果不是以 .html 結尾，補上斜線
+                baseUrl += '/';
+            }
+
             let html = '';
 
             items.forEach(cat => {
-                html += `<div class="col-span-2 md:col-span-4 mt-4 mb-2 border-b border-gray-300 pb-1">
                 html += `<div class="col-span-2 md:col-span-4 mt-4 mb-2 border-b border-gray-300 pb-1 print-break">
                             <h3 class="font-bold text-gray-500 text-lg">${cat.category}</h3>
                          </div>`;
-
+                
                 cat.list.forEach(item => {
                     const fullUrl = `${baseUrl}#${item.id}`;
-                    // 使用 Google Chart API 或類似服務生成 QR (這裡用 qrserver API，穩定且免費)
                     // 使用 API 生成 QR
                     const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=${encodeURIComponent(fullUrl)}`;
-
+                    
                     html += `
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition">
                         <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition print-break">
                             <h4 class="font-bold text-lg text-slate-800 mb-2">${item.name}</h4>
                             <img src="${qrSrc}" alt="${item.name} QR Code" class="w-40 h-40 border border-gray-100 rounded mb-3">
                             <p class="text-[10px] text-gray-400 break-all text-center leading-tight mb-3 px-2">${fullUrl}</p>
                             <a href="${qrSrc}" download="${item.name}_QR.png" target="_blank" 
-                               class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 py-1 px-3 rounded transition">
                                class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 py-1 px-3 rounded transition no-print">
                                下載圖片
                             </a>
                         </div>
+                    `;
+                });
+            });
+
+            container.innerHTML = html;
+        }
+
+        // 頁面載入時先生成一次
+        window.onload = generateQRs;
+    </script>
+</body>
+</html>
