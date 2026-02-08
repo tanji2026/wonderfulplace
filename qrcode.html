@@ -16,7 +16,7 @@
 </head>
 <body class="bg-gray-100 p-8">
 
-    <div class="max-w-5xl mx-auto">
+    <div class="max-w-6xl mx-auto">
         <div class="bg-white p-6 rounded-2xl shadow-lg mb-8 no-print">
             <h1 class="text-2xl font-bold text-slate-800 mb-4">🛠️ 麗寶萊茵 QR Code 批量產生器</h1>
             <p class="text-slate-600 mb-4">請在下方輸入您網站發布後的「正式網址」，系統會自動加上對應的錨點 (#ID) 並生成二維碼。</p>
@@ -30,15 +30,15 @@
             <p class="text-xs text-gray-400 mt-2">*如果是首頁，網址最後面記得要有斜線 /，例如 .../wonderfulplace/</p>
         </div>
 
-        <div id="qrContainer" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div id="qrContainer" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             <!-- QR Codes will be injected here -->
         </div>
     </div>
 
     <script>
-        // 定義所有項目的 ID 與名稱 (已更新為正確的9種植物)
+        // 定義所有項目的 ID 與名稱
         const items = [
-            { category: "生態綠化 (已更新)", list: [
+            { category: "生態綠化 (原有)", list: [
                 { id: "juniperus", name: "鋪地柏" },
                 { id: "schefflera-elegantissima", name: "孔雀木" },
                 { id: "zanthoxylum", name: "胡椒木" },
@@ -49,11 +49,25 @@
                 { id: "duranta", name: "金露花" },
                 { id: "ruellia", name: "翠蘆莉" }
             ]},
+            { category: "生態綠化 (新增)", list: [
+                { id: "ardisia", name: "大葉紫金牛" },
+                { id: "eurya", name: "凹葉柃木" },
+                { id: "buddha-bamboo", name: "羅漢竹" },
+                { id: "ixora", name: "紅仙丹花" },
+                { id: "dracaena", name: "龍血樹" },
+                { id: "podocarpus", name: "短葉羅漢松" },
+                { id: "cordyline", name: "朱蕉" },
+                { id: "gardenia", name: "梔子花" },
+                { id: "podocarpus-bonsai", name: "羅漢松(盆栽)" }
+            ]},
             { category: "日常節能", list: [
                 { id: "lighting", name: "感應照明" },
                 { id: "elevator", name: "節能電梯" },
                 { id: "smart-meter", name: "智慧電錶" },
                 { id: "fridge", name: "公用冰箱" }
+            ]},
+            { category: "新增專區", list: [
+                { id: "measures", name: "節能減碳措施" }
             ]},
             { category: "永續生活", list: [
                 { id: "water-saving", name: "省水設備" },
@@ -82,22 +96,30 @@
             let html = '';
 
             items.forEach(cat => {
-                html += `<div class="col-span-2 md:col-span-4 mt-4 mb-2 border-b border-gray-300 pb-1 print-break">
-                            <h3 class="font-bold text-gray-500 text-lg">${cat.category}</h3>
+                html += `<div class="col-span-2 md:col-span-4 lg:col-span-5 mt-6 mb-2 border-b-2 border-blue-100 pb-1 print-break">
+                            <h3 class="font-bold text-blue-600 text-xl flex items-center">
+                                <span class="bg-blue-100 w-2 h-6 rounded mr-2 inline-block"></span>
+                                ${cat.category}
+                            </h3>
                          </div>`;
                 
                 cat.list.forEach(item => {
                     const fullUrl = `${baseUrl}#${item.id}`;
                     // 使用 API 生成 QR
-                    const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=10&data=${encodeURIComponent(fullUrl)}`;
+                    const qrSrc = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data=${encodeURIComponent(fullUrl)}`;
                     
                     html += `
-                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition print-break">
-                            <h4 class="font-bold text-lg text-slate-800 mb-2">${item.name}</h4>
-                            <img src="${qrSrc}" alt="${item.name} QR Code" class="w-40 h-40 border border-gray-100 rounded mb-3">
-                            <p class="text-[10px] text-gray-400 break-all text-center leading-tight mb-3 px-2">${fullUrl}</p>
+                        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition print-break group">
+                            <div class="w-full flex justify-between items-center mb-2">
+                                <span class="text-xs font-bold text-gray-400 bg-gray-50 px-2 py-1 rounded">#${item.id}</span>
+                            </div>
+                            <h4 class="font-bold text-lg text-slate-800 mb-2 text-center h-14 flex items-center justify-center">${item.name}</h4>
+                            <div class="relative">
+                                <img src="${qrSrc}" alt="${item.name} QR Code" class="w-full h-auto border border-gray-100 rounded mb-3">
+                            </div>
+                            <p class="text-[10px] text-gray-400 break-all text-center leading-tight mb-3 px-2 opacity-50">${fullUrl}</p>
                             <a href="${qrSrc}" download="${item.name}_QR.png" target="_blank" 
-                               class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-600 py-1 px-3 rounded transition no-print">
+                               class="text-xs bg-blue-50 hover:bg-blue-600 hover:text-white text-blue-600 font-bold py-2 px-4 rounded-full transition w-full text-center no-print">
                                下載圖片
                             </a>
                         </div>
