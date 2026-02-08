@@ -72,31 +72,6 @@
         .modal.active .modal-content {
             transform: scale(1);
         }
-        /* 清單樣式 */
-        .measure-list {
-            counter-reset: measure-counter;
-        }
-        .measure-item {
-            position: relative;
-            padding-left: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .measure-item::before {
-            counter-increment: measure-counter;
-            content: counter(measure-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 1.75rem;
-            height: 1.75rem;
-            background-color: #0EA5E9;
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 1.75rem;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-700 antialiased selection:bg-brand-light selection:text-brand-dark">
@@ -117,7 +92,6 @@
                     <div class="hidden lg:flex space-x-6 xl:space-x-8">
                         <a href="#plants" class="text-slate-600 hover:text-brand font-medium transition">生態綠化</a>
                         <a href="#energy" class="text-slate-600 hover:text-brand font-medium transition">日常節能</a>
-                        <!-- 新增連結 -->
                         <a href="#measures" class="text-slate-600 hover:text-brand font-medium transition">減碳措施</a>
                         <a href="#green-life" class="text-slate-600 hover:text-brand font-medium transition">永續生活</a>
                         <a href="#future" class="text-slate-600 hover:text-brand font-medium transition">未來願景</a>
@@ -138,7 +112,6 @@
             <div class="px-4 pt-2 pb-4 space-y-1">
                 <a href="#plants" onclick="toggleMenu()" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">🌱 生態綠化</a>
                 <a href="#energy" onclick="toggleMenu()" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">⚡ 日常節能</a>
-                <!-- 新增手機版連結 -->
                 <a href="#measures" onclick="toggleMenu()" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">📋 減碳措施</a>
                 <a href="#green-life" onclick="toggleMenu()" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">♻️ 永續生活</a>
                 <a href="#future" onclick="toggleMenu()" class="block px-3 py-3 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">🚀 未來願景</a>
@@ -176,7 +149,6 @@
 
             <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 
-                <!-- 原有植物 1-9 (保持不變) -->
                 <!-- 1. 鋪地柏 -->
                 <div id="juniperus" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
@@ -303,12 +275,9 @@
                     </div>
                 </div>
 
-                <!-- 新增植物區塊 Start -->
-
                 <!-- 10. 大葉紫金牛 -->
                 <div id="ardisia" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：ardisia.jpg -->
                         <img src="assets/plants/ardisia.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1628186254425-412f17042a96?auto=format&fit=crop&q=80&w=600'" alt="大葉紫金牛">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">紫金牛科</span>
                     </div>
@@ -323,7 +292,6 @@
                 <!-- 11. 凹葉柃木 -->
                 <div id="eurya" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：eurya.jpg -->
                         <img src="assets/plants/eurya.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596726660601-52e85a420b91?auto=format&fit=crop&q=80&w=600'" alt="凹葉柃木">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">茶科</span>
                     </div>
@@ -338,7 +306,6 @@
                 <!-- 12. 羅漢竹 -->
                 <div id="buddha-bamboo" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：buddha_bamboo.jpg -->
                         <img src="assets/plants/buddha_bamboo.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1619965492167-73934b9d0344?auto=format&fit=crop&q=80&w=600'" alt="羅漢竹">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">禾本科</span>
                     </div>
@@ -353,7 +320,6 @@
                 <!-- 13. 紅仙丹花 -->
                 <div id="ixora" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：ixora.jpg -->
                         <img src="assets/plants/ixora.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1563214532-602844889c25?auto=format&fit=crop&q=80&w=600'" alt="紅仙丹花">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">茜草科</span>
                     </div>
@@ -368,7 +334,6 @@
                 <!-- 14. 龍血樹 -->
                 <div id="dracaena" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：dracaena.jpg -->
                         <img src="assets/plants/dracaena.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1596726660601-52e85a420b91?auto=format&fit=crop&q=80&w=600'" alt="龍血樹">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">龍舌蘭科</span>
                     </div>
@@ -383,7 +348,6 @@
                 <!-- 15. 短葉羅漢松 -->
                 <div id="podocarpus" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：podocarpus.jpg -->
                         <img src="assets/plants/podocarpus.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1520412099551-62b6bafeb5bb?auto=format&fit=crop&q=80&w=600'" alt="短葉羅漢松">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">羅漢松科</span>
                     </div>
@@ -398,7 +362,6 @@
                 <!-- 16. 朱蕉 -->
                 <div id="cordyline" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：cordyline.jpg -->
                         <img src="assets/plants/cordyline.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1628186254425-412f17042a96?auto=format&fit=crop&q=80&w=600'" alt="朱蕉">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">龍舌蘭科</span>
                     </div>
@@ -413,7 +376,6 @@
                 <!-- 17. 梔子花 -->
                 <div id="gardenia" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：gardenia.jpg -->
                         <img src="assets/plants/gardenia.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1590053912638-349f2b380302?auto=format&fit=crop&q=80&w=600'" alt="梔子花">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">茜草科</span>
                     </div>
@@ -428,7 +390,6 @@
                 <!-- 18. 短葉羅漢松(盆栽) -->
                 <div id="podocarpus-bonsai" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition duration-300 border border-slate-100 group">
                     <div class="img-container">
-                        <!-- 檔案名稱：podocarpus_bonsai.jpg -->
                         <img src="assets/plants/podocarpus_bonsai.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1599598425947-320092261f9d?auto=format&fit=crop&q=80&w=600'" alt="短葉羅漢松(盆栽)">
                         <span class="absolute top-2 left-2 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-700 shadow-sm">羅漢松科</span>
                     </div>
@@ -555,33 +516,70 @@
                 <h3 class="text-2xl font-bold section-title">節能減碳措施</h3>
             </div>
 
-            <div class="bg-white rounded-3xl p-8 shadow-lg border border-slate-100">
-                <ol class="grid md:grid-cols-2 gap-x-12 gap-y-4 text-slate-600 measure-list text-sm md:text-base">
-                    <li class="measure-item">分散重大耗能因子降低千瓦基數，調降台電契約容量。</li>
-                    <li class="measure-item">地下室部分燈座只裝一支燈管，節省電費及降低燈管損耗數量。</li>
-                    <li class="measure-item">公設冷氣設定28度C才開，分夏季、冬季管制。大廳冷氣除設定溫度規範外，常出入的出入口處兩台冷氣不開啟。</li>
-                    <li class="measure-item">公設照明電燈因應日落時間調整開燈時間，並修改迴路讓部分公設電燈可單獨開關。</li>
-                    <li class="measure-item">泳池循環由兩台循環改成單台循環。</li>
-                    <li class="measure-item">庭園造景瀑布、補水設備馬達等公設設備安裝定時器，控制開啟時間。</li>
-                    <li class="measure-item">調升垃圾冷凍庫溫度，在衛生與節能間取得平衡。</li>
-                    <li class="measure-item">保留泳池水作為下次清洗泳池之用，珍惜水資源。</li>
-                    <li class="measure-item">影印機內放置再生紙，非重要資料或文件盡量使用再生紙列印。</li>
-                    <li class="measure-item">區權會開會資料使用 QR code 數位化，減少紙張使用。</li>
-                    <li class="measure-item">規約要求住戶使用專用垃圾袋，有助抑制一般垃圾清運量。</li>
-                    <li class="measure-item">垃圾子母車原委託廠商使用柴油車，改用電動車載運，降低碳排量。</li>
-                    <li class="measure-item">車道使用 eTag 辨識，不使用遙控器開關，減少廢電池量。</li>
-                    <li class="measure-item">公告鄰近公車、捷運、YouBike 站點地圖，宣導使用大眾交通運輸。</li>
-                    <li class="measure-item">推動集中焚燒金紙，減少空氣污染。</li>
-                    <li class="measure-item">後巷改裝設具太陽能發電之燈柱。</li>
-                    <li class="measure-item">影印機、AED 等設備以租賃取代購買，落實以租代買的循環經濟。</li>
-                    <li class="measure-item">社區免費提供腳踏車打氣筒借用，友善推廣綠色運具。</li>
-                    <li class="measure-item">咖啡廳租借使用時，均採用可重複使用之餐具及容器。</li>
-                    <li class="measure-item">社區備有飲水機，取代瓶裝水使用。</li>
-                    <li class="measure-item">泳池為常溫，不加熱、不裝冷氣。改裝設排氣窗，夏季自然排風促進循環與調節濕度。</li>
-                    <li class="measure-item">公設電器（如健身房跑步機）未使用時拔掉插頭，節省待機電源。</li>
-                    <li class="measure-item">社區節慶發起團購，集中包裝運輸，減少二氧化碳排放及過度包裝。</li>
-                    <li class="measure-item">頂樓設置自助曬衣區，利用太陽能取代烘衣機使用，環保節能。</li>
-                </ol>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card 1: 節電與能源 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-yellow-400">
+                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                        <span class="bg-yellow-100 p-2 rounded-full mr-3 text-yellow-600 text-sm">⚡</span>
+                        節電與能源管理
+                    </h4>
+                    <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>分散重大耗能因子，調降台電契約容量。</li>
+                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>地下室部分燈座只裝一支燈管，節省電費及損耗。</li>
+                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>冷氣28度C才開，分季管制；大廳出入口處冷氣不開啟。</li>
+                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>照明因應日落調整時間，修改迴路以利單獨開關。</li>
+                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>後巷改裝設具太陽能發電之燈柱。</li>
+                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>公設電器（如跑步機）未使用時拔除插頭，節省待機電源。</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: 設施與水資源 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-blue-400">
+                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                        <span class="bg-blue-100 p-2 rounded-full mr-3 text-blue-600 text-sm">💧</span>
+                        設施優化與水資源
+                    </h4>
+                    <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>泳池循環由兩台循環改成單台循環。</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>庭園瀑布、補水馬達等設備安裝定時器控制。</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>調升垃圾冷凍庫溫度，在衛生與節能間取得平衡。</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>保留泳池水作為下次清洗泳池之用，珍惜水資源。</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>常溫泳池利用排氣窗自然通風，取代空調與加熱。</li>
+                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>頂樓設置自助曬衣區，利用太陽能取代烘衣機。</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3: 減廢與數位化 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-green-400">
+                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                        <span class="bg-green-100 p-2 rounded-full mr-3 text-green-600 text-sm">♻️</span>
+                        減廢、循環與數位化
+                    </h4>
+                    <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>影印機優先使用再生紙列印非重要文件。</li>
+                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>區權會資料全面 QR code 數位化，減少紙張。</li>
+                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>落實專用垃圾袋制度，有效抑制一般垃圾量。</li>
+                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>推動集中焚燒金紙，減少空氣污染。</li>
+                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>影印機、AED 採租賃模式，落實以租代買循環經濟。</li>
+                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>節慶發起團購，集中運輸減少碳排與過度包裝。</li>
+                    </ul>
+                </div>
+
+                <!-- Card 4: 綠色交通與生活 -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-teal-400">
+                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                        <span class="bg-teal-100 p-2 rounded-full mr-3 text-teal-600 text-sm">🌿</span>
+                        低碳交通與生活
+                    </h4>
+                    <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>垃圾子母車改用電動車載運，降低碳排量。</li>
+                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>車道使用 eTag 辨識，減少遙控器廢電池量。</li>
+                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>公告大眾運輸與 YouBike 站點地圖，宣導綠色交通。</li>
+                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>免費提供腳踏車打氣筒，友善單車族群。</li>
+                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>咖啡廳租借全面採用可重複使用餐具與容器。</li>
+                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>設有公共飲水機，取代瓶裝水使用。</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
