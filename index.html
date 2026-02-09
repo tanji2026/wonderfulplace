@@ -56,6 +56,22 @@
         .group:hover .img-container img {
             transform: scale(1.05);
         }
+        /* 修改：措施區塊的圖片高度設定，調整為長型以容納六張合成圖 */
+        .measure-img-container {
+            height: 560px; /* 大幅增加高度，適應長型合成圖 */
+            overflow: hidden;
+            position: relative;
+        }
+        .measure-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top; /* 設定靠上對齊，確保重點不被切掉 */
+            transition: transform 0.5s ease;
+        }
+        .group:hover .measure-img-container img {
+            transform: scale(1.02); /* 因為圖片很大，縮放比例稍微調小一點避免暈眩 */
+        }
         .modal {
             opacity: 0;
             visibility: hidden;
@@ -505,7 +521,7 @@
             </div>
         </section>
 
-        <!-- 新增節能減碳措施區塊 -->
+        <!-- 節能減碳措施區塊 -->
         <section id="measures">
             <div class="flex items-center gap-3 mb-8">
                 <div class="p-2 bg-slate-100 rounded-lg text-slate-600">
@@ -518,67 +534,86 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Card 1: 節電與能源 -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-yellow-400">
-                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                        <span class="bg-yellow-100 p-2 rounded-full mr-3 text-yellow-600 text-sm">⚡</span>
-                        節電與能源管理
-                    </h4>
-                    <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
-                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>分散重大耗能因子，調降台電契約容量。</li>
-                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>地下室部分燈座只裝一支燈管，節省電費及損耗。</li>
-                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>冷氣28度C才開，分季管制；大廳出入口處冷氣不開啟。</li>
-                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>照明因應日落調整時間，修改迴路以利單獨開關。</li>
-                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>後巷改裝設具太陽能發電之燈柱。</li>
-                        <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>公設電器（如跑步機）未使用時拔除插頭，節省待機電源。</li>
-                    </ul>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-yellow-400 group">
+                    <div class="measure-img-container">
+                        <img src="assets/measures/electricity.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&q=80&w=600'" alt="節電與能源管理">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                            <span class="bg-yellow-100 p-2 rounded-full mr-3 text-yellow-600 text-sm">⚡</span>
+                            節電與能源管理
+                        </h4>
+                        <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+                            <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>分散重大耗能因子，調降台電契約容量。</li>
+                            <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>地下室部分燈座只裝一支燈管，節省電費及損耗。</li>
+                            <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>冷氣28度C才開，分季管制；大廳出入口處冷氣不開啟。</li>
+                            <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>照明因應日落調整時間，修改迴路以利單獨開關。</li>
+                            <li class="flex items-start"><span class="mr-2 text-yellow-500 mt-0.5">•</span>公設電器（如跑步機）未使用時拔除插頭，節省待機電源。</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Card 2: 設施與水資源 -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-blue-400">
-                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                        <span class="bg-blue-100 p-2 rounded-full mr-3 text-blue-600 text-sm">💧</span>
-                        設施優化與水資源
-                    </h4>
-                    <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
-                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>泳池循環由兩台循環改成單台循環。</li>
-                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>庭園瀑布、補水馬達等設備安裝定時器控制。</li>
-                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>調升垃圾冷凍庫溫度，在衛生與節能間取得平衡。</li>
-                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>保留泳池水作為下次清洗泳池之用，珍惜水資源。</li>
-                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>常溫泳池利用排氣窗自然通風，取代空調與加熱。</li>
-                        <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>頂樓設置自助曬衣區，利用太陽能取代烘衣機。</li>
-                    </ul>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-blue-400 group">
+                    <div class="measure-img-container">
+                        <img src="assets/measures/water_pool.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1572370868832-613d5b22b07e?auto=format&fit=crop&q=80&w=600'" alt="設施優化與水資源">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                            <span class="bg-blue-100 p-2 rounded-full mr-3 text-blue-600 text-sm">💧</span>
+                            設施優化與水資源
+                        </h4>
+                        <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+                            <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>泳池循環由兩台循環改成單台循環。</li>
+                            <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>庭園瀑布、補水馬達等設備安裝定時器控制。</li>
+                            <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>調升垃圾冷凍庫溫度，在衛生與節能間取得平衡。</li>
+                            <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>保留泳池水作為下次清洗泳池之用，珍惜水資源。</li>
+                            <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>常溫泳池利用排氣窗自然通風，取代空調與加熱。</li>
+                            <li class="flex items-start"><span class="mr-2 text-blue-500 mt-0.5">•</span>頂樓設置自助曬衣區，利用太陽能取代烘衣機。</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Card 3: 減廢與數位化 -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-green-400">
-                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                        <span class="bg-green-100 p-2 rounded-full mr-3 text-green-600 text-sm">♻️</span>
-                        減廢、循環與數位化
-                    </h4>
-                    <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
-                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>影印機優先使用再生紙列印非重要文件。</li>
-                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>區權會資料全面 QR code 數位化，減少紙張。</li>
-                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>落實專用垃圾袋制度，有效抑制一般垃圾量。</li>
-                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>推動集中焚燒金紙，減少空氣污染。</li>
-                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>影印機、AED 採租賃模式，落實以租代買循環經濟。</li>
-                        <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>節慶發起團購，集中運輸減少碳排與過度包裝。</li>
-                    </ul>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-green-400 group">
+                    <div class="measure-img-container">
+                        <img src="assets/measures/recycling_bins.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=600'" alt="減廢、循環與數位化">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                            <span class="bg-green-100 p-2 rounded-full mr-3 text-green-600 text-sm">♻️</span>
+                            減廢、循環與數位化
+                        </h4>
+                        <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+                            <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>影印機優先使用再生紙列印非重要文件。</li>
+                            <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>區權會資料全面 QR code 數位化，減少紙張。</li>
+                            <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>落實專用垃圾袋制度，有效抑制一般垃圾量。</li>
+                            <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>推動集中焚燒金紙，減少空氣污染。</li>
+                            <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>影印機、AED 採租賃模式，落實以租代買循環經濟。</li>
+                            <li class="flex items-start"><span class="mr-2 text-green-500 mt-0.5">•</span>節慶發起團購，集中運輸減少碳排與過度包裝。</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- Card 4: 綠色交通與生活 -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border-l-4 border-teal-400">
-                    <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                        <span class="bg-teal-100 p-2 rounded-full mr-3 text-teal-600 text-sm">🌿</span>
-                        低碳交通與生活
-                    </h4>
-                    <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
-                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>垃圾子母車改用電動車載運，降低碳排量。</li>
-                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>車道使用 eTag 辨識，減少遙控器廢電池量。</li>
-                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>公告大眾運輸與 YouBike 站點地圖，宣導綠色交通。</li>
-                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>免費提供腳踏車打氣筒，友善單車族群。</li>
-                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>咖啡廳租借全面採用可重複使用餐具與容器。</li>
-                        <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>設有公共飲水機，取代瓶裝水使用。</li>
-                    </ul>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-md border-l-4 border-teal-400 group">
+                    <div class="measure-img-container">
+                        <img src="assets/measures/bicycle.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?auto=format&fit=crop&q=80&w=600'" alt="低碳交通與生活">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                            <span class="bg-teal-100 p-2 rounded-full mr-3 text-teal-600 text-sm">🌿</span>
+                            低碳交通與生活
+                        </h4>
+                        <ul class="space-y-3 text-slate-600 text-sm leading-relaxed">
+                            <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>垃圾子母車改用電動車載運，降低碳排量。</li>
+                            <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>車道使用 eTag 辨識，減少遙控器廢電池量。</li>
+                            <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>公告大眾運輸與 YouBike 站點地圖，宣導綠色交通。</li>
+                            <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>免費提供腳踏車打氣筒，友善單車族群。</li>
+                            <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>咖啡廳租借全面採用可重複使用餐具與容器。</li>
+                            <li class="flex items-start"><span class="mr-2 text-teal-500 mt-0.5">•</span>設有公共飲水機，取代瓶裝水使用。</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
